@@ -3,6 +3,12 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+
+	$("a").click(function (e) {
+		event.preventDefault();
+		var name = $(event.target).text();
+		$(this).text(anagrammedName(name));
+	});
 })
 
 /*
@@ -10,13 +16,6 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
-}
-
-$(".friendElement a").click(changeName);
-function changeName(event) {
-	event.preventDefault();
-	var name = $(event.target).text();
-	$(this).text(anagrammedName(name));
 }
 
 function anagrammedName(name) {
